@@ -2,15 +2,15 @@
 
 ## **📋 Sobre o Projeto**
 
-Este projeto implementa um sistema embarcado para monitorização de segurança de portas utilizando o microcontrolador **ATmega328P**. O sistema foi desenvolvido em **Linguagem C** utilizando uma abordagem *bare-metal* (sem sistema operacional), focando na eficiência e no controle direto do hardware.
+Este projeto implementa um sistema embarcado para monitorização de segurança de portas utilizando o microcontrolador **ATmega328P**. O sistema foi desenvolvido em **Linguagem C**, focando na eficiência e no controle direto do hardware.
 
 A lógica de controle baseia-se em uma **Máquina de Estados Finitos (FSM)** para garantir determinismo e robustez, enquanto o acesso ao hardware é mediado por uma camada de abstração (HAL \- Hardware Abstraction Layer) personalizada para controle de GPIOs.
 
 ### **🎯 Funcionalidades**
 
-* **Leitura de Sensor:** Monitoriza um sensor de porta (simulado por switch) com filtro de ruído básico (*debounce* via delay).  
+* **Leitura de Sensor:** Monitoriza um sensor de porta (simulado por switch).  
 * **Atuação Visual:** Controla um indicador LED para sinalizar o estado da porta.  
-* **Eficiência:** Uso de resistores de *pull-up* internos para reduzir componentes externos.  
+* **Eficiência:** Uso de resistores de *pull-up* externos.  
 * **Portabilidade:** Estrutura de projeto baseada em CMake, independente de IDEs proprietárias.
 
 ## **🛠️ Hardware e Esquemático**
@@ -19,10 +19,10 @@ O projeto foi validado no microcontrolador ATmega328P (comum nas placas Arduino 
 
 ### **Pinagem (Pinout)**
 
-| Componente | Pino AVR | Pino Arduino | Configuração | Descrição |
+| Componente | Pino AVR | Pino Arduino | Configuração |
 | :---- | :---- | :---- | :---- | :---- |
-| **Sensor (Switch)** | PB1 | D9 | INPUT\_PULLUP | Fecha curto com GND quando acionado. |
-| **Atuador (LED)** | PC5 | A5 | OUTPUT | Nível Alto (5V) acende o LED. |
+| **Sensor (Switch)** | PB1 | D9 | INPUT |
+| **Atuador (LED)** | PC5 | A5 | OUTPUT |
 
 **Nota de Engenharia:** Originalmente, o pino PC6 (Reset) seria considerado, mas foi substituído pelo PC5 para evitar a desabilitação do fusível de Reset, o que dificultaria a gravação via ISP/Serial.
 
@@ -30,7 +30,8 @@ O projeto foi validado no microcontrolador ATmega328P (comum nas placas Arduino 
 
 * **VCC:** 5V  
 * **Resistor do LED:** 220Ω ou 330Ω (Limitador de corrente para \< 20mA).  
-* **Sensor:** Conectado entre PB1 e GND. Não é necessário resistor externo (Pull-up interno ativado via software).
+* **Sensor:** Simulado através de um switch.  
+
 
 ## **📂 Estrutura do Projeto**
 
