@@ -19,7 +19,7 @@ int main(void)
             gpio_config(&DDRB, DDB1, GPIO_INPUT);
             
             // Habilita o resistor de Pull-up interno em B1 (Escrevendo HIGH na entrada)
-            gpio_write(&PORTB, PORTB1, GPIO_HIGH);
+            //gpio_write(&PORTB, PORTB1, GPIO_HIGH);
             
             // Configura C5 como Output (LED/Relé)
             gpio_config(&DDRC, DDC5, GPIO_OUTPUT);
