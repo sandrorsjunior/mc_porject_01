@@ -1,0 +1,34 @@
+# CMake Build Directories
+/build/
+/bin/
+/lib/
+
+# C/C++ Object Files and Libraries
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+
+# AVR Specific Compilation Outputs
+*.elf
+*.hex
+*.eep
+*.map
+*.lss
+*.sym
+*.srec
+*.bin
+*.lst
+
+# IDE and Editor Files
+.vscode/
+.vs/
+*.suo
+*.user
+*.swp
+
+# OS Generated Files
+Thumbs.db
+Desktop.ini
